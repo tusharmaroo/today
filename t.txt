@@ -1,0 +1,10 @@
+  439  rails generate devise:install
+  440  rails generate devise User
+  441  rails generate devise:views users
+  511  rails generate devise:install
+  512  rails generate devise User
+  518  rails generate devise User
+  520  history > grep - /devise/ > t.txt && cat t.txt
+  521  history | grep - /devise/ > t.txt && cat t.txt
+  522  history | grep /devise/ > t.txt && cat t.txt
+  523  history | grep "devise" > t.txt && cat t.txt

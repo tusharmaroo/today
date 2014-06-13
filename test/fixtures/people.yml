@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  skills: MyText
+  totalExp: 1.5
+  tcsExp: 1.5
+  releventExp: 1.5
+  Allocation: 1
+  interestAreas: MyText
+  active: false
+  group_id: 
+
+two:
+  name: MyString
+  skills: MyText
+  totalExp: 1.5
+  tcsExp: 1.5
+  releventExp: 1.5
+  Allocation: 1
+  interestAreas: MyText
+  active: false
+  group_id: 
