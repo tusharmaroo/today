@@ -17,7 +17,7 @@
 
 <p>
   <strong>Group:</strong>
-  <%= @project.group %>
+  <%= Group.find(@project.group_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |

@@ -25,7 +25,14 @@
   </div>
   <div class="field">
     <%= f.label :group_id %><br>
-    <%= f.text_field :group_id %>
+    <%#= f.text_field :group_id %>
+    <select id="project_group_id" name="project[group_id]">
+      <% @groups.each do |group| %>
+        <option value="<%= group.id %>">
+          <%= group.name %>
+        </option>
+      <% end %>
+    </select>
   </div>
   <div class="actions">
     <%= f.submit %>

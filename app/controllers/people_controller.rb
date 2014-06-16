@@ -20,6 +20,7 @@ class PeopleController < ApplicationController
 
   # GET /people/1/edit
   def edit
+    @groups = Group.all
   end
 
   # POST /people
@@ -55,7 +56,10 @@ class PeopleController < ApplicationController
   # DELETE /people/1
   # DELETE /people/1.json
   def destroy
-    @person.destroy
+    #@person.destroy
+    #@person = Person.find(params[:id])
+    @person.active = false
+    @person.save
     respond_to do |format|
       format.html { redirect_to people_url, notice: 'Person was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,6 +74,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :skills, :totalExp, :tcsExp, :releventExp, :Allocation, :interestAreas, :active, :group_id)
+      params.require(:person).permit(:name, :skills, :totalExp, :tcsExp, :releventExp, :Allocation, :interestAreas, :active, :group_id,:location)
     end
 end

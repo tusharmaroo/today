@@ -58,7 +58,7 @@
     <%#= f.text_field :group_id %>
     <select id="person_group_id" name="person[group_id]">
       <% @groups.each do |group| %>
-        <option value="1">
+        <option value="<%= group.id %>">
           <%= group.name %>
         </option>
       <% end %>

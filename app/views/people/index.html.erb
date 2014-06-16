@@ -18,20 +18,22 @@
 
   <tbody>
     <% @people.each do |person| %>
-      <tr>
-        <td><%= person.name %></td>
-        <td><%= person.skills %></td>
-        <td><%= person.totalExp %></td>
-        <td><%= person.tcsExp %></td>
-        <td><%= person.releventExp %></td>
-        <td><%= person.Allocation %></td>
-        <td><%= person.interestAreas %></td>
-        <td><%= person.active %></td>
-        <td><%= person.group %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if person.active then %>
+        <tr>
+          <td><%= person.name %></td>
+          <td><%= person.skills %></td>
+          <td><%= person.totalExp %></td>
+          <td><%= person.tcsExp %></td>
+          <td><%= person.releventExp %></td>
+          <td><%= person.Allocation %></td>
+          <td><%= person.interestAreas %></td>
+          <td><%= person.active %></td>
+          <td><%= Group.find(person.group_id).name %></td>
+          <td><%= link_to 'Show', person %></td>
+          <td><%= link_to 'Edit', edit_person_path(person) %></td>
+          <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

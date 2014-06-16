@@ -17,7 +17,8 @@
         <td><%= project.name %></td>
         <td><%= project.startDate %></td>
         <td><%= project.endDate %></td>
-        <td><%= project.group %></td>
+        <td><%= Group.find(project.group_id).name %></td>
+        <%#= project.group %>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
