@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= Person.find(@assignment.person_id).name %>
+</p>
+
+
+
+<p>
+  <strong>Project:</strong>
+  <%= Project.find(@assignment.project_id).name %>
+</p>
+
+<p>
+  <strong>Billable:</strong>
+  <%= @assignment.billable %>
+</p>
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

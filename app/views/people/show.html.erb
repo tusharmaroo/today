@@ -49,6 +49,17 @@
   <strong>Group:</strong>
   <%= Group.find(@person.group_id).name %>
 </p>
+<hr>
+<% as=[] 
+as = Assignment.where(person_id: @person.id)
+%>
+<%# if a = Assignment.find_by_person_id(@person.id) then %>
+<% if as  %>
+<% as.each do |a| %>
+  <%= @person.name %> is mapped to <%= Project.find(a.project_id).name %><br>
+  <% end %>
+<% end %>
+<p>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>

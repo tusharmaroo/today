@@ -1,10 +1,12 @@
-  439  rails generate devise:install
-  440  rails generate devise User
-  441  rails generate devise:views users
-  511  rails generate devise:install
-  512  rails generate devise User
-  518  rails generate devise User
-  520  history > grep - /devise/ > t.txt && cat t.txt
-  521  history | grep - /devise/ > t.txt && cat t.txt
-  522  history | grep /devise/ > t.txt && cat t.txt
-  523  history | grep "devise" > t.txt && cat t.txt
+  518  rails g scaffold Group
+  519  rails destroy scaffold Group
+  520  rails destroy scaffold Group name:string
+  521  rails g scaffold Group name:string
+  523  rails g scaffold Project name:string startDate:date endDate:date references:group
+  525  rails destroy scaffold Project name:string startDate:date endDate:date references:group
+  527  rails g scaffold Project name:string startDate:date endDate:date group:reference
+  529  rails destroy scaffold Project name:string startDate:date endDate:date group:reference
+  530  rails destroy scaffold Project name:string startDate:date endDate:date group:references
+  531  rails g scaffold Project name:string startDate:date endDate:date group:references
+  533  rails g scaffold Person name:string skills:text totalExp:float tcsExp:float releventExp:float Allocation:integer interestAreas:text active:boolean group:references
+  592  history | grep "scaffold" > t.txt && cat t.txt

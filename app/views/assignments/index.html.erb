@@ -1,0 +1,35 @@
+<h1>Listing assignments</h1>
+
+<table class="data">
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Project</th>
+      <th>Billable</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= Person.find(assignment.person_id).name %></td>
+        <td><%= Project.find(assignment.project_id).name %></td>
+        <td><%= assignment.billable %></td>
+        <td><%= link_to 'Show', assignment %></td>
+        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+        <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Assignment', new_assignment_path %>  |   
+
+<script type="text/javascript">
+$('.data').dataTable();
+</script>
