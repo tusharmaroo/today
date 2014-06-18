@@ -60,6 +60,40 @@ as = Assignment.where(person_id: @person.id)
   <% end %>
 <% end %>
 <p>
+<% if @person.Allocation < 100 %>
+<%= form_for(@assignment) do |f| %>
+  <% if @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+      <% @assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <input type="hidden" name="assignment[person_id]" id="assignment_person_id" value="<%= @person.id %>">
+  <div class="field">
+    <%= f.label :project_id %><br>
+    <%#= f.text_field :group_id %>
+    <select id="assignment_project_id" name="assignment[project_id]">
+      <% @projects.each do |project| %>
+        <option value="<%= project.id %>">
+          <%= project.name %>
+        </option>
+      <% end %>
+    </select>
+  </div>
+  <div class="field">
+    <%= f.label :billable %><br>
+    <%= f.check_box :billable %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
